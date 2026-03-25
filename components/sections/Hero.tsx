@@ -8,15 +8,10 @@ import styles from './Hero.module.css'
 
 const letterVariants = {
     hidden: { y: 100, opacity: 0 },
-    visible: (i: number) => ({
+    visible: {
         y: 0,
         opacity: 1,
-        transition: {
-            duration: 0.8,
-            delay: 0.5 + i * 0.04,
-            ease: [0.16, 1, 0.3, 1],
-        },
-    }),
+    },
 }
 
 export const Hero = () => {
@@ -42,10 +37,14 @@ export const Hero = () => {
                             <motion.span
                                 key={`first-${i}`}
                                 className={styles.letter}
-                                custom={i}
                                 initial="hidden"
                                 animate="visible"
                                 variants={letterVariants}
+                                transition={{
+                                    duration: 0.8,
+                                    delay: 0.5 + i * 0.04,
+                                    ease: "easeOut",
+                                }}
                             >
                                 {letter}
                             </motion.span>
@@ -56,10 +55,14 @@ export const Hero = () => {
                             <motion.span
                                 key={`last-${i}`}
                                 className={styles.letter}
-                                custom={firstNameLetters.length + i}
                                 initial="hidden"
                                 animate="visible"
                                 variants={letterVariants}
+                                transition={{
+                                    duration: 0.8,
+                                    delay: 0.5 + (firstNameLetters.length + i) * 0.04,
+                                    ease: "easeOut",
+                                }}
                             >
                                 {letter}
                             </motion.span>
@@ -73,7 +76,7 @@ export const Hero = () => {
                 className={styles.infoGrid}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
             >
                 <div className={styles.infoItem}>
                     <span className={styles.infoLabel}>Role</span>
@@ -103,7 +106,7 @@ export const Hero = () => {
                 className={styles.statsBar}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.5, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.8, delay: 1.5, ease: "easeOut" }}
             >
                 {stats.map((stat, i) => (
                     <div key={stat.label} className={styles.stat}>
