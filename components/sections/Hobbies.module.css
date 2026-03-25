@@ -1,0 +1,96 @@
+.hobbies {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: var(--section-padding) var(--gutter);
+    background: var(--color-bg-alt);
+}
+
+.inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 7rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+    transition: padding-left 0.4s var(--ease-out-expo);
+}
+
+.item:first-child {
+    border-top: 1px solid var(--color-border);
+}
+
+.item:hover {
+    padding-left: 1rem;
+}
+
+.icon {
+    font-size: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border-strong);
+    flex-shrink: 0;
+}
+
+.itemContent {
+    flex: 1;
+}
+
+.itemName {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+
+.itemDesc {
+    font-size: 0.8125rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
+}
+
+.itemNumber {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .title {
+        writing-mode: horizontal-tb;
+        transform: none;
+    }
+}

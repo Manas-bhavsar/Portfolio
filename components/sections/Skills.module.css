@@ -1,0 +1,207 @@
+.skills {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: var(--section-padding) var(--gutter);
+    background: var(--color-bg-alt);
+}
+
+.inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+/* Technical Skills */
+.technicalBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.skillsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid var(--color-border);
+    padding: 2rem;
+    background: var(--color-bg);
+}
+
+.skillRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.skillName {
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    min-width: 120px;
+    color: var(--color-text);
+}
+
+.barTrack {
+    flex: 1;
+    height: 3px;
+    background: var(--color-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.barFill {
+    height: 100%;
+    background: var(--color-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.skillPercent {
+    font-size: 0.625rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    min-width: 2rem;
+    text-align: right;
+}
+
+.skillsLabel {
+    display: flex;
+    flex-direction: column;
+}
+
+.blockTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+}
+
+.blockTitleIndent {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    padding-left: 4rem;
+}
+
+/* Communication Skills */
+.commBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.commTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+}
+
+.commTitleIndent {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    padding-left: 3rem;
+    margin-bottom: 1rem;
+}
+
+.commCard {
+    background: var(--color-surface-dark);
+    color: var(--color-text-inverse);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.commCardLetter {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: rgba(245, 240, 235, 0.2);
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(245, 240, 235, 0.15);
+    flex-shrink: 0;
+}
+
+.commCardTitle {
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    flex: 1;
+}
+
+.commCardPeriod {
+    font-size: 0.75rem;
+    color: rgba(245, 240, 235, 0.5);
+}
+
+.commList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+}
+
+.commRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.commRow:last-child {
+    border-bottom: none;
+}
+
+.commName {
+    font-size: 0.8125rem;
+    font-weight: 500;
+}
+
+.commDots {
+    display: flex;
+    gap: 0.375rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-border-strong);
+    transition: background 0.3s ease;
+}
+
+.dotFilled {
+    background: var(--color-text);
+    border-color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+    .inner {
+        grid-template-columns: 1fr;
+    }
+
+    .blockTitleIndent,
+    .commTitleIndent {
+        padding-left: 2rem;
+    }
+
+    .skillName {
+        min-width: 80px;
+    }
+}
