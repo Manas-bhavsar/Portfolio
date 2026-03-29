@@ -57,6 +57,12 @@ export const Contact = () => {
                             <span className={styles.infoLabel}>Location</span>
                             <span className={styles.infoValue}>{personalInfo.location}</span>
                         </div>
+                        <div className={styles.infoItem}>
+                            <span className={styles.infoLabel}>Resume</span>
+                            <a href={personalInfo.resumeUrl} target="_blank" rel="noopener noreferrer" className={styles.infoValue}>
+                                Download CV <ArrowUpRight size={14} />
+                            </a>
+                        </div>
                     </motion.div>
 
                     <motion.div

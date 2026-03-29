@@ -135,6 +135,14 @@ export const Hero = () => {
                         {link.name}
                     </a>
                 ))}
+                <a
+                    href={personalInfo.resumeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.socialLink}
+                >
+                    Resume
+                </a>
             </motion.div>
 
             {/* Scroll Indicator */}

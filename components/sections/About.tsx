@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { personalInfo } from '@/lib/siteConfig'
+import { ArrowUpRight } from 'lucide-react'
 import styles from './About.module.css'
 
 export const About = () => {
@@ -76,6 +77,19 @@ export const About = () => {
                                 </a>
                             </div>
                         </motion.div>
+
+                        <motion.a
+                            href={personalInfo.resumeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.resumeBtn}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.7 }}
+                        >
+                            Download Resume <ArrowUpRight size={16} />
+                        </motion.a>
                     </div>
 
                     <motion.p

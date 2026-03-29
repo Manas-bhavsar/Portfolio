@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { personalInfo, navItems } from '@/lib/siteConfig'
+import { ArrowUpRight } from 'lucide-react'
 import styles from './Navbar.module.css'
 
 export const Navbar = () => {
@@ -69,6 +70,20 @@ export const Navbar = () => {
                                     <span className={styles.linkLabel}>{item.label}</span>
                                 </motion.button>
                             ))}
+
+                            <motion.a
+                                href={personalInfo.resumeUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.resumeLink}
+                                initial={{ y: 40, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                exit={{ y: -20, opacity: 0 }}
+                                transition={{ duration: 0.5, delay: 0.1 + navItems.length * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                            >
+                                <span className={styles.linkNumber}>{String(navItems.length + 1).padStart(2, '0')}</span>
+                                <span className={styles.linkLabel}>Resume <ArrowUpRight size={24} /></span>
+                            </motion.a>
                         </div>
                     </motion.div>
                 )}

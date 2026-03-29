@@ -17,7 +17,7 @@ export const Footer = () => {
         >
             <div className={styles.inner}>
                 <div className={styles.top}>
-                    <span className={styles.brand}>{personalInfo.lastName.toUpperCase()}</span>
+                    <span className={styles.brand}>{personalInfo.firstName.toUpperCase()}</span>
                     <div className={styles.links}>
                         {socialLinks.map((link) => (
                             <a
@@ -30,6 +30,14 @@ export const Footer = () => {
                                 {link.name}
                             </a>
                         ))}
+                        <a
+                            href={personalInfo.resumeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.link}
+                        >
+                            Resume
+                        </a>
                     </div>
                 </div>
                 <div className={styles.bottom}>
