@@ -93,7 +93,7 @@ export const projects: Project[] = [
         description: 'Mark UI is a modern, lightweight component library designed for building clean and consistent user interfaces. It offers a curated set of ready-to-use components with a focus on simplicity, performance, and developer experience — making it easy to craft polished web applications without the overhead of complex configuration',
         tech: ['React', 'Redux', 'Socket.io', 'Node.js', 'MongoDB'],
         liveUrl: 'https://markui.vercel.app/',
-        githubUrl: 'https://github.com/https://github.com/Manas-bhavsar/mark-ui',
+        githubUrl: 'https://github.com/Manas-bhavsar/mark-ui',
         featured: true,
         category: 'frontend',
         year: '2024',
