@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { personalInfo, socialLinks } from '@/lib/siteConfig'
 import { ArrowUpRight, Send } from 'lucide-react'
 import styles from './Contact.module.css'
@@ -18,11 +18,44 @@ export const Contact = () => {
         e.preventDefault()
         if (!formData.name || !formData.email || !formData.message) return
         setStatus('sending')
-        // Simulate send
-        setTimeout(() => {
-            setStatus('sent')
-            setFormData({ name: '', email: '', message: '' })
-        }, 1500)
+        
+        try {
+            const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+            if (!accessKey) {
+                console.error("Web3Forms access key is missing");
+                setStatus('error');
+                return;
+            }
+
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({
+                    access_key: accessKey,
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                }),
+            });
+
+            const result = await response.json();
+            
+            if (result.success) {
+                setStatus('sent')
+                setFormData({ name: '', email: '', message: '' })
+            } else {
+                console.error("Web3Forms submission failed", result)
+                setStatus('error')
+                setTimeout(() => setStatus('idle'), 5000); // Reset after 5s
+            }
+        } catch (error) {
+            console.error("Error submitting form", error)
+            setStatus('error')
+            setTimeout(() => setStatus('idle'), 5000); // Reset after 5s
+        }
     }
 
     return (
@@ -106,8 +139,36 @@ export const Contact = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 >
-                    <form onSubmit={handleSubmit} className={styles.form}>
-                        <div className={styles.formGroup}>
+                    <AnimatePresence mode="wait">
+                        {status === 'sent' ? (
+                            <motion.div
+                                key="success"
+                                className={styles.successMessage}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.95 }}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <div className={styles.successIconWrapper}>
+                                    <span className={styles.successIcon}>✓</span>
+                                </div>
+                                <h3 className={styles.successTitle}>Message Sent!</h3>
+                                <p className={styles.successText}>Thank you for reaching out. I've successfully received your message and will get back to you as soon as possible.</p>
+                                <button type="button" className={styles.submitBtn} onClick={() => setStatus('idle')} style={{ marginTop: '1.5rem' }}>
+                                    Send Another Message
+                                </button>
+                            </motion.div>
+                        ) : (
+                            <motion.form 
+                                key="form"
+                                onSubmit={handleSubmit} 
+                                className={styles.form}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.4 }}
+                            >
+                                <div className={styles.formGroup}>
                             <label htmlFor="contact-name" className={styles.formLabel}>Name</label>
                             <input
                                 type="text"
@@ -153,8 +214,8 @@ export const Contact = () => {
                         >
                             {status === 'sending' ? (
                                 <span>Sending...</span>
-                            ) : status === 'sent' ? (
-                                <span>Message Sent ✓</span>
+                            ) : status === 'error' ? (
+                                <span>Failed to Send ✗</span>
                             ) : (
                                 <span className={styles.btnContent}>
                                     <Send size={16} />
@@ -162,7 +223,9 @@ export const Contact = () => {
                                 </span>
                             )}
                         </button>
-                    </form>
+                            </motion.form>
+                        )}
+                    </AnimatePresence>
                 </motion.div>
             </div>
         </section>
