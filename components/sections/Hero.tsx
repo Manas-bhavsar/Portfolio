@@ -7,10 +7,11 @@ import { ArrowDown } from 'lucide-react'
 import styles from './Hero.module.css'
 
 const letterVariants = {
-    hidden: { y: 100, opacity: 0 },
+    hidden: { clipPath: 'inset(100% 0% 0% 0%)', filter: 'blur(10px)', y: 40 },
     visible: {
+        clipPath: 'inset(0% 0% 0% 0%)',
+        filter: 'blur(0px)',
         y: 0,
-        opacity: 1,
     },
 }
 
@@ -41,9 +42,9 @@ export const Hero = () => {
                                 animate="visible"
                                 variants={letterVariants}
                                 transition={{
-                                    duration: 0.8,
-                                    delay: 0.5 + i * 0.04,
-                                    ease: "easeOut",
+                                    duration: 0.7,
+                                    delay: 0.1 + i * 0.03,
+                                    ease: [0.16, 1, 0.3, 1],
                                 }}
                             >
                                 {letter}
@@ -59,9 +60,9 @@ export const Hero = () => {
                                 animate="visible"
                                 variants={letterVariants}
                                 transition={{
-                                    duration: 0.8,
-                                    delay: 0.5 + (firstNameLetters.length + i) * 0.04,
-                                    ease: "easeOut",
+                                    duration: 0.7,
+                                    delay: 0.1 + (firstNameLetters.length + i) * 0.03,
+                                    ease: [0.16, 1, 0.3, 1],
                                 }}
                             >
                                 {letter}
@@ -74,9 +75,9 @@ export const Hero = () => {
             {/* Info Grid */}
             <motion.div
                 className={styles.infoGrid}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
+                initial={{ opacity: 0, filter: 'blur(10px)', y: 30 }}
+                animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+                transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
                 <div className={styles.infoItem}>
                     <span className={styles.infoLabel}>Role</span>
@@ -104,9 +105,9 @@ export const Hero = () => {
             {/* Stats Bar */}
             <motion.div
                 className={styles.statsBar}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.5, ease: "easeOut" }}
+                initial={{ opacity: 0, filter: 'blur(10px)', y: 20 }}
+                animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+                transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
                 {stats.map((stat, i) => (
                     <div key={stat.label} className={styles.stat}>
@@ -120,9 +121,9 @@ export const Hero = () => {
             {/* Social Links */}
             <motion.div
                 className={styles.socials}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 1.8 }}
+                initial={{ opacity: 0, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, filter: 'blur(0px)' }}
+                transition={{ duration: 0.7, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
                 {socialLinks.map((link) => (
                     <a
@@ -137,6 +138,7 @@ export const Hero = () => {
                 ))}
                 <a
                     href={personalInfo.resumeUrl}
+                    download="Manas_Bhavsar_Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.socialLink}
@@ -148,9 +150,9 @@ export const Hero = () => {
             {/* Scroll Indicator */}
             <motion.div
                 className={styles.scrollIndicator}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2, duration: 0.8 }}
+                initial={{ opacity: 0, filter: 'blur(5px)' }}
+                animate={{ opacity: 1, filter: 'blur(0px)' }}
+                transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
                 <motion.div
                     animate={{ y: [0, 8, 0] }}
@@ -164,9 +166,9 @@ export const Hero = () => {
             {/* Decorative Page Number */}
             <motion.span
                 className={styles.pageNumber}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 0.8 }}
+                initial={{ opacity: 0, filter: 'blur(5px)' }}
+                animate={{ opacity: 1, filter: 'blur(0px)' }}
+                transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
                 01
             </motion.span>

@@ -10,10 +10,10 @@ export const Hobbies = () => {
             <div className={styles.inner}>
                 <motion.h2
                     className={styles.title}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: -50, rotateZ: 2 }}
+                    whileInView={{ opacity: 1, y: 0, rotateZ: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ type: 'spring', damping: 12, mass: 0.8, bounce: 0.2 }}
                 >
                     HOBBIES
                 </motion.h2>
@@ -23,10 +23,10 @@ export const Hobbies = () => {
                         <motion.div
                             key={hobby.name}
                             className={styles.item}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, y: -80, rotateZ: -5, scale: 0.95 }}
+                            whileInView={{ opacity: 1, y: 0, rotateZ: 0, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                            transition={{ type: 'spring', damping: 14, mass: 1.0, bounce: 0.4, delay: i * 0.08 }}
                         >
                             <span className={styles.icon}>{hobby.icon}</span>
                             <div className={styles.itemContent}>

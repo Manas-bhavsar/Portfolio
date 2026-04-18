@@ -14,7 +14,6 @@ import {
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // SITE CONFIGURATION
-// Edit this single file to update ALL content on the website.
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 // ── Personal Info ──
@@ -22,12 +21,13 @@ export const personalInfo: PersonalInfo = {
     name: 'Manas Bhavsar',
     firstName: 'Manas',
     lastName: 'Bhavsar',
-    title: 'Frontend Developer',
+    title: 'Developer',
     tagline: 'Crafting pixel-perfect digital experiences with modern web technologies.',
     bio: "I'm a frontend developer passionate about crafting pixel-perfect, accessible, and performant user interfaces. I specialize in React, Next.js, and modern CSS — turning complex problems into elegant, intuitive solutions. I believe great design is invisible, and every interaction should feel natural.",
     email: 'manas.bhavsar45@gmail.com',
     location: 'India',
     resumeUrl: '/resume.pdf',
+    avatarUrl: '',
 }
 
 // ── Navigation ──
@@ -46,8 +46,6 @@ export const navItems: NavItem[] = [
 export const stats: Stat[] = [
     { number: '3+', label: 'Years Experience' },
     { number: '20+', label: 'Projects Built' },
-    // { number: '10+', label: 'Happy Clients' },
-    // { number: '5+', label: 'Open Source' },
 ]
 
 // ── Technical Skills ──
@@ -78,9 +76,22 @@ export const communicationSkills: CommunicationSkill[] = [
 export const projects: Project[] = [
     {
         id: '1',
+        title: 'Mark UI',
+        description: 'Mark UI is a modern, lightweight component library designed for building clean and consistent user interfaces. It offers a curated set of ready-to-use components with a focus on simplicity, performance, and developer experience — making it easy to craft polished web applications without the overhead of complex configuration',
+        tech: ['React', 'Next.JS', 'Tailwind CSS', 'TypeScript'],
+        image: '',
+        liveUrl: 'https://markui.vercel.app/',
+        githubUrl: 'https://github.com/Manas-bhavsar/mark-ui',
+        featured: true,
+        category: 'Frontend',
+        year: '2024',
+    },
+    {
+        id: '2',
         title: 'ResuKnow',
         description: 'RESUKNOW is an AI-powered resume analysis platform that helps job seekers create optimized, ATS-friendly resumes. It analyzes uploaded resumes and provides real-time feedback on keywords, formatting, and content quality to improve chances of getting shortlisted by recruiters.',
         tech: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+        image: '',
         liveUrl: 'https://resuknow.vercel.app/',
         githubUrl: 'https://github.com/meghp2356/ResuKnowVercel',
         featured: true,
@@ -88,17 +99,17 @@ export const projects: Project[] = [
         year: '2025',
     },
     {
-        id: '2',
-        title: 'Mark UI',
-        description: 'Mark UI is a modern, lightweight component library designed for building clean and consistent user interfaces. It offers a curated set of ready-to-use components with a focus on simplicity, performance, and developer experience — making it easy to craft polished web applications without the overhead of complex configuration',
-        tech: ['React', 'Next.JS', 'Tailwind CSS', 'TypeScript'],
-        liveUrl: 'https://markui.vercel.app/',
-        githubUrl: 'https://github.com/Manas-bhavsar/mark-ui',
+        id: '3',
+        title: 'SalesDesk Dashboard',
+        description: 'A comprehensive dashboard application for sales analytics and management. Features include Excel data import, intuitive data tables, interactive charts, and real-time statistics, all wrapped in a premium UI with dark and light modes.',
+        tech: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript'],
+        image: '',
+        liveUrl: '',
+        githubUrl: 'https://github.com/Manas-bhavsar/salesdesk',
         featured: true,
-        category: 'frontend',
+        category: 'Fullstack',
         year: '2024',
     },
-
 ]
 
 // ── Experience ──
@@ -108,7 +119,7 @@ export const experience: Experience[] = [
         title: 'Intern',
         company: 'Ingenious Erectors',
         period: '2025',
-        description: '.',
+        description: 'During my internship, I worked extensively with PHP to develop a school attendance system, gaining hands-on experience in building real-world applications from the ground up. I was involved in implementing core features and ensuring a smooth, user-friendly interface. This experience strengthened my practical development skills and changed my approach to coding—making me more focused on writing clean, efficient, and user-centered solutions.',
         tech: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
     },
 
@@ -119,15 +130,15 @@ export const education: Education[] = [
     {
         id: '1',
         degree: 'Diploma in Computer Engineering',
-        institution: 'LJ polytechnique',
+        institution: 'LJ Polytechnic',
         period: '2018 — 2022',
         description: 'Specialized in software engineering and web technologies. Graduated with distinction.',
     },
     {
         id: '2',
-        degree: 'Bachlors in Computer Engineering',
-        institution: 'gadhinagar University',
-        period: '2025-2028',
+        degree: 'Bachelors in Computer Engineering',
+        institution: 'Gandhinagar University',
+        period: '2025 — 2028',
         description: 'Science stream with Computer Science. Scored 92% in board examinations.',
     },
 ]

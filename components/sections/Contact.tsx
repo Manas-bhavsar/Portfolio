@@ -64,8 +64,8 @@ export const Contact = () => {
                 <div className={styles.left}>
                     <motion.div
                         className={styles.titleBlock}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, scale: 1.15, filter: 'blur(10px)' }}
+                        whileInView={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     >
@@ -75,10 +75,10 @@ export const Contact = () => {
 
                     <motion.div
                         className={styles.contactInfo}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, filter: 'blur(5px)' }}
+                        whileInView={{ opacity: 1, filter: 'blur(0px)' }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
+                        transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <div className={styles.infoItem}>
                             <span className={styles.infoLabel}>Email</span>
@@ -92,7 +92,7 @@ export const Contact = () => {
                         </div>
                         <div className={styles.infoItem}>
                             <span className={styles.infoLabel}>Resume</span>
-                            <a href={personalInfo.resumeUrl} target="_blank" rel="noopener noreferrer" className={styles.infoValue}>
+                            <a href={personalInfo.resumeUrl} download="Manas_Bhavsar_Resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.infoValue}>
                                 Download CV <ArrowUpRight size={14} />
                             </a>
                         </div>
@@ -100,10 +100,10 @@ export const Contact = () => {
 
                     <motion.div
                         className={styles.socialBlock}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, filter: 'blur(5px)' }}
+                        whileInView={{ opacity: 1, filter: 'blur(0px)' }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <span className={styles.socialLabel}>Find me on</span>
                         <div className={styles.socialLinks}>
@@ -123,10 +123,10 @@ export const Contact = () => {
 
                     <motion.span
                         className={styles.sectionLetter}
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
+                        initial={{ opacity: 0, filter: 'blur(10px)' }}
+                        whileInView={{ opacity: 1, filter: 'blur(0px)' }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.6 }}
+                        transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     >
                         E
                     </motion.span>
@@ -134,10 +134,10 @@ export const Contact = () => {
 
                 <motion.div
                     className={styles.right}
-                    initial={{ opacity: 0, x: 40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, scale: 0.95, filter: 'saturate(0)' }}
+                    whileInView={{ opacity: 1, scale: 1, filter: 'saturate(1)' }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                 >
                     <AnimatePresence mode="wait">
                         {status === 'sent' ? (

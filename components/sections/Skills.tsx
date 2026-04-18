@@ -15,10 +15,10 @@ export const Skills = () => {
                 {/* Left: Technical Skills */}
                 <motion.div
                     className={styles.technicalBlock}
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: -100, scaleX: 1.2 }}
+                    whileInView={{ opacity: 1, x: 0, scaleX: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ type: 'spring', damping: 10, stiffness: 200 }}
                 >
                     <div className={styles.skillsList}>
                         {skills.slice(0, 8).map((skill, i) => (
@@ -29,7 +29,7 @@ export const Skills = () => {
                                         className={styles.barFill}
                                         initial={{ width: 0 }}
                                         animate={isInView ? { width: `${skill.level}%` } : {}}
-                                        transition={{ duration: 1, delay: 0.3 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                                        transition={{ duration: 0.6, delay: 0.1 + i * 0.05, ease: [0.16, 1, 0.3, 1] }}
                                     />
                                 </div>
                                 <span className={styles.skillPercent}>{skill.level}%</span>
@@ -46,10 +46,10 @@ export const Skills = () => {
                 {/* Right: Communication Skills */}
                 <motion.div
                     className={styles.commBlock}
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: 100, scaleX: 1.2 }}
+                    whileInView={{ opacity: 1, x: 0, scaleX: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ type: 'spring', damping: 12, stiffness: 160, delay: 0.1 }}
                 >
                     <h2 className={styles.commTitle}>COMMUNICATION</h2>
                     <h2 className={styles.commTitleIndent}>SKILLS</h2>
@@ -65,10 +65,10 @@ export const Skills = () => {
                             <motion.div
                                 key={skill.name}
                                 className={styles.commRow}
-                                initial={{ opacity: 0, x: 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
+                                initial={{ opacity: 0, x: 50, scaleX: 1.5 }}
+                                whileInView={{ opacity: 1, x: 0, scaleX: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
+                                transition={{ type: 'spring', damping: 10, stiffness: 200, delay: 0.2 + i * 0.05 }}
                             >
                                 <span className={styles.commName}>{skill.name}</span>
                                 <div className={styles.commDots}>

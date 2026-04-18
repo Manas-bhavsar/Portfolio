@@ -13,10 +13,10 @@ export const Education = () => {
                         <motion.div
                             key={edu.id}
                             className={styles.card}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, x: -100, scaleX: 1.2 }}
+                            whileInView={{ opacity: 1, x: 0, scaleX: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.7, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
+                            transition={{ type: 'spring', damping: 12, stiffness: 200, delay: i * 0.05 }}
                         >
                             <div className={styles.cardHeader}>
                                 <span className={styles.cardLetter}>
@@ -33,24 +33,14 @@ export const Education = () => {
                             </div>
                         </motion.div>
                     ))}
-
-                    <motion.h3
-                        className={styles.bottomTitle}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7, delay: 0.3 }}
-                    >
-                        INSTITUTION
-                    </motion.h3>
                 </div>
 
                 <motion.div
                     className={styles.right}
-                    initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, x: 100, scaleX: 1.2 }}
+                    whileInView={{ opacity: 1, x: 0, scaleX: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ type: 'spring', damping: 14, stiffness: 160, delay: 0.1 }}
                 >
                     <h2 className={styles.title}>EDUCATION</h2>
                     <p className={styles.subtitle}>

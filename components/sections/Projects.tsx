@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { projects } from '@/lib/siteConfig'
 import { ArrowUpRight } from 'lucide-react'
 import styles from './Projects.module.css'
@@ -11,12 +12,12 @@ export const Projects = () => {
             <div className={styles.inner}>
                 <motion.div
                     className={styles.header}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: -50, rotateZ: -2 }}
+                    whileInView={{ opacity: 1, y: 0, rotateZ: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ type: 'spring', damping: 12, mass: 0.8, bounce: 0.2 }}
                 >
-                    <h2 className={styles.titleLeft}>SELECTED</h2>
+                    <h2 className={styles.titleLeft}>THE</h2>
                     <h2 className={styles.titleRight}>WORK</h2>
                 </motion.div>
 
@@ -25,18 +26,28 @@ export const Projects = () => {
                         <motion.article
                             key={project.id}
                             className={styles.card}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, y: -100, rotateZ: 5, scale: 0.95 }}
+                            whileInView={{ opacity: 1, y: 0, rotateZ: 0, scale: 1 }}
                             viewport={{ once: true, margin: '-50px' }}
-                            transition={{ duration: 0.7, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                            transition={{ type: 'spring', damping: 14, mass: 1.0, bounce: 0.4, delay: i * 0.08 }}
                         >
                             {/* Image Area */}
                             <div className={styles.imageArea}>
-                                <div className={styles.imagePlaceholder}>
-                                    <span className={styles.projectNumber}>
-                                        {String(i + 1).padStart(2, '0')}
-                                    </span>
-                                </div>
+                                {project.image ? (
+                                    <Image
+                                        src={project.image}
+                                        alt={project.title}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                        className={styles.projectImage}
+                                    />
+                                ) : (
+                                    <div className={styles.imagePlaceholder}>
+                                        <span className={styles.projectNumber}>
+                                            {String(i + 1).padStart(2, '0')}
+                                        </span>
+                                    </div>
+                                )}
                                 {project.featured && (
                                     <span className={styles.featuredBadge}>Featured</span>
                                 )}

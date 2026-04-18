@@ -44,6 +44,8 @@
     letter-spacing: 0.08em;
     min-width: 120px;
     color: var(--color-text);
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .barTrack {
@@ -77,17 +79,19 @@
 
 .blockTitle {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(1.8rem, 8vw, 4.5rem);
     line-height: 0.9;
     text-transform: uppercase;
+    word-break: break-word;
 }
 
 .blockTitleIndent {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(1.8rem, 8vw, 4.5rem);
     line-height: 0.9;
     text-transform: uppercase;
-    padding-left: 4rem;
+    padding-left: clamp(1rem, 5vw, 4rem);
+    word-break: break-word;
 }
 
 /* Communication Skills */
@@ -99,18 +103,20 @@
 
 .commTitle {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(1.8rem, 8vw, 4.5rem);
     line-height: 0.9;
     text-transform: uppercase;
+    word-break: break-word;
 }
 
 .commTitleIndent {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(1.8rem, 8vw, 4.5rem);
     line-height: 0.9;
     text-transform: uppercase;
-    padding-left: 3rem;
+    padding-left: clamp(1rem, 5vw, 3rem);
     margin-bottom: 1rem;
+    word-break: break-word;
 }
 
 .commCard {

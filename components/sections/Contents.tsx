@@ -15,10 +15,10 @@ export const Contents = () => {
             <div className={styles.inner}>
                 <motion.h2
                     className={styles.title}
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, filter: 'blur(10px)', y: 20 }}
+                    whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 >
                     CONTENTS
                 </motion.h2>
@@ -29,10 +29,10 @@ export const Contents = () => {
                             key={item.id}
                             className={styles.item}
                             onClick={() => handleNav(item.id)}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, filter: 'blur(5px)', x: -20 }}
+                            whileInView={{ opacity: 1, filter: 'blur(0px)', x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                            transition={{ duration: 0.6, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
                         >
                             <span className={styles.number}>{item.number}</span>
                             <span className={styles.dividerLine} />

@@ -10,10 +10,10 @@ export const Experience = () => {
             <div className={styles.inner}>
                 <motion.div
                     className={styles.header}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, rotateX: 30, scale: 0.9, transformPerspective: 1000 }}
+                    whileInView={{ opacity: 1, rotateX: 0, scale: 1, transformPerspective: 1000 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ type: 'spring', damping: 12, mass: 0.5, bounce: 0.4 }}
                 >
                     <span className={styles.eyebrow}>03 — Work</span>
                     <h2 className={styles.title}>EXPERIENCE</h2>
@@ -24,10 +24,10 @@ export const Experience = () => {
                         <motion.div
                             key={exp.id}
                             className={styles.card}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                            initial={{ opacity: 0, rotateY: 30, scale: 0.9, transformPerspective: 1200 }}
+                            whileInView={{ opacity: 1, rotateY: 0, scale: 1, transformPerspective: 1200 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ type: 'spring', damping: 10, mass: 0.5, bounce: 0.4, delay: i * 0.05 }}
                         >
                             <div className={styles.cardInner}>
                                 <div className={styles.cardHeader}>

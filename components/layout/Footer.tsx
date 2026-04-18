@@ -32,6 +32,7 @@ export const Footer = () => {
                         ))}
                         <a
                             href={personalInfo.resumeUrl}
+                            download="Manas_Bhavsar_Resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.link}
