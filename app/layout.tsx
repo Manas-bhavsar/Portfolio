@@ -5,6 +5,9 @@ import { CustomCursor } from "@/components/layout/CustomCursor";
 
 export const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+    icons: {
+        icon: '/favicon.svg',
+    },
     title: "Manas Bhavsar — Frontend Developer",
     description: "Portfolio of Manas Bhavsar — A frontend developer passionate about crafting pixel-perfect, accessible, and performant user interfaces.",
     keywords: ["frontend developer", "react", "next.js", "portfolio", "web developer"],
